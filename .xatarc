@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://L-A-S-S-Kularathna-s-workspace-q8ee0j.us-east-1.xata.sh/db/handy-hero",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}
