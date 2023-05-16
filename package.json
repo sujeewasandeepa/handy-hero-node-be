@@ -1,0 +1,26 @@
+{
+  "name": "handy-hero-node-be",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sujeewasandeepa/handy-hero-node-be.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sujeewasandeepa/handy-hero-node-be/issues"
+  },
+  "homepage": "https://github.com/sujeewasandeepa/handy-hero-node-be#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.1.1",
+    "nodemon": "^2.0.22"
+  }
+}
