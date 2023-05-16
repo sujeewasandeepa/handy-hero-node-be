@@ -23,6 +23,19 @@ app.post("/api/employer", async (req:Request, res:Response) => {
     res.json(createdEmployer);
 })
 
+app.put("/api/employer/:id", async (req:Request, res:Response) => {
+    const id = req.params.id;
+    const employerData = req.body;
+    const updatedEmployer = await xata.db.employer.update(id, employerData);
+    res.json(updatedEmployer);
+});
+
+app.delete("/api/employer/:id", async (req:Request, res:Response) => {
+    const id = req.params.id;
+    const deletedEmployer = await xata.db.employer.delete(id);
+    res.json(deletedEmployer);
+})
+
 app.listen(PORT, () => {
     console.log(`Server running at ${PORT}`);
 })
