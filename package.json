@@ -5,22 +5,30 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start:dev": "nodemon",
+    "build": "rimraf ./build && tsc",
+    "start": "npm run build && node build/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sujeewasandeepa/handy-hero-node-be.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "L.A.S.S Kularathna",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sujeewasandeepa/handy-hero-node-be/issues"
   },
   "homepage": "https://github.com/sujeewasandeepa/handy-hero-node-be#readme",
   "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^7.1.1",
-    "nodemon": "^2.0.22"
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.1.5",
+    "nodemon": "^2.0.22",
+    "rimraf": "^5.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
   }
 }
