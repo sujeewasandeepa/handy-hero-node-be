@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/sujeewasandeepa/handy-hero-node-be#readme",
   "dependencies": {
+    "@xata.io/client": "^0.23.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2"
   },
