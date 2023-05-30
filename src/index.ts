@@ -1,6 +1,7 @@
 import express, {Express, Request, Response} from "express";
 import dotenv from 'dotenv';
 import { getXataClient, Employer } from "./xata";
+import cors from 'cors';
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ const xata = getXataClient();
 
 // middleware
 app.use(express.json());
+app.use(cors());
 
 app.get("/api/employer", async (req:Request, res:Response) => {
     const employer = await xata.db.employer.getAll();
