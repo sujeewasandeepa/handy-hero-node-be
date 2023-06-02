@@ -14,14 +14,19 @@ router.get("/api/employer", async (req:Request, res:Response) => {
 
 router.post("/api/employer", async (req:Request, res:Response) => {
     const employerData = req.body;
-    const createdEmployer = await xata.db.employer.create({
-        name: employerData.name,
-        address: employerData.address,
-        NIC: employerData.NIC,
-        hashed_password: employerData.password,
-        phone_number: employerData.phone_number, 
-    });
-    res.json(createdEmployer);
+    try {
+        const createdEmployer:Employer = await xata.db.employer.create({
+            name: employerData.name,
+            address: employerData.address,
+            NIC: employerData.NIC,
+            hashed_password: employerData.password,
+            phone_number: employerData.phone_number, 
+            email: employerData.email
+        });
+        res.json(createdEmployer);
+    } catch (error) {
+        console.error(error);
+    }
 })
 
 router.put("/api/employer/:id", async (req:Request, res:Response) => {
