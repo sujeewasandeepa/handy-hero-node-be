@@ -15,6 +15,7 @@ const tables = [
       { name: "NIC", type: "string" },
       { name: "hashed_password", type: "string" },
       { name: "phone_number", type: "string" },
+      { name: "email", type: "email", unique: true },
     ],
   },
 ] as const;

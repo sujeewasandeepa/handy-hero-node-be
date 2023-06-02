@@ -1,42 +1,19 @@
-import express, {Express, Request, Response} from "express";
+import express, {Express} from "express";
 import dotenv from 'dotenv';
-import { getXataClient, Employer } from "./xata";
 import cors from 'cors';
+import router from "./routes/routes";
 
 dotenv.config();
 
 const app:Express = express();
 const PORT = process.env.PORT || 4000;
 
-const xata = getXataClient();
 
 // middleware
 app.use(express.json());
 app.use(cors());
 
-app.get("/api/employer", async (req:Request, res:Response) => {
-    const employer = await xata.db.employer.getAll();
-    res.json(employer);
-})
-
-app.post("/api/employer", async (req:Request, res:Response) => {
-    const employerData = req.body;
-    const createdEmployer = await xata.db.employer.create(employerData);
-    res.json(createdEmployer);
-})
-
-app.put("/api/employer/:id", async (req:Request, res:Response) => {
-    const id = req.params.id;
-    const employerData = req.body;
-    const updatedEmployer = await xata.db.employer.update(id, employerData);
-    res.json(updatedEmployer);
-});
-
-app.delete("/api/employer/:id", async (req:Request, res:Response) => {
-    const id = req.params.id;
-    const deletedEmployer = await xata.db.employer.delete(id);
-    res.json(deletedEmployer);
-})
+app.use("/", router);
 
 app.listen(PORT, () => {
     console.log(`Server running at ${PORT}`);
